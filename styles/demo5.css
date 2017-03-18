@@ -1,0 +1,15 @@
+
+.content{
+
+}
+.side{
+	background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #cbcbcb;
+    box-shadow: 2px 2px #848484;
+    line-height:26px;
+    width: 450px;
+    float: right;
+
+}

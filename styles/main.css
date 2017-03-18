@@ -7,7 +7,6 @@ body{
     width: 100%;
     height: 60px;
     background-color: #333;
-
 }
 .header .header-logo{
     margin-left: 40px;
@@ -35,7 +34,7 @@ body{
 }
 .article{
     background-color: #fff;
-    margin: 20px;
+    margin: 20px 550px 20px 20px;
     padding: 20px;
     border: 1px solid #cbcbcb;
     box-shadow: 2px 2px #848484;
@@ -60,9 +59,8 @@ body{
 .article ul{
     list-style-type: none;
 }
-
 .pic {
-    display: block;
+    display: inline-block;
     border: 1px solid #dedede;
     text-align: center;
     width: 120px;
@@ -100,8 +98,6 @@ body{
     border-left: 2px solid #ccc;
     padding-left: 6px;
 }
-
-
 .sidebar .left{
     display: inline-block;
     width: 30%;
@@ -116,7 +112,6 @@ body{
     vertical-align: top;
 }
 .sidebar .info{
-    width: 500px;
     height: 100px;
 }
 .sidebar .button{
@@ -127,7 +122,6 @@ body{
     color: #fff;
     text-align: center;
 }
-
 #footer{
     width: 100%;
     height: 100px;
