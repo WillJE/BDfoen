@@ -1,7 +1,7 @@
 这个库包含了在百度前端学院学习的轨迹，从Demo1开始，不定期更新，还在学习当中
 
 Demo1
-[http://willlin.cn/BDfoen/Demo1.html](http://willlin.cn/BDfoen/Demo1.html )
+[Demo1](http://willlin.cn/BDfoen/Demo1.html )
 
 Demo2
 [http://willlin.cn/BDfoen/Demo2](http://willlin.cn/BDfoen/Demo2)
