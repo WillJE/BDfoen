@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
   <head>
     <meta charset="utf-8">
@@ -6,27 +6,113 @@
   </head>
 <body>
 
-  <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
-  <button id="button">确认填写</button>
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+  </ul>
 
-  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+  <ul id="resort">
+    <!-- 
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+  </ul>
+
+  <button id="sort-btn">排序</button>
 
 <script type="text/javascript">
 
-(function() {
-  /*    
-  在注释下方写下代码
-  给按钮button绑定一个点击事件
-  在事件处理函数中
-  获取aqi-input输入的值，并显示在aqi-display中
+/**
+ * getData方法
+ * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
+ * 返回一个数组，格式见函数中示例
+ */
+function getData() {
+  /*
+  coding here
   */
-  var btn=document.getElementById("button");
-  var input=document.getElementById("aqi-input");
-  var display=document.getElementById("aqi-display");
-  btn.onclick=function () {
-    display.innerHTML=input.value;
+  data = new Array;
+  var source =  document.getElementById('source').getElementsByTagName('li');
+  for (var i = 0; i < source.length; i++) {
+    text = source[i].innerText;
+    node = [text.substring(0,2), text.substring(7,9)];
+    data.push(node)
   }
-})();
+  /*
+  data = [
+    ["北京", 90],
+    ["北京", 90]
+    ……
+  ]
+  */
+  return data;
+}
+/**
+ * sortAqiData
+ * 按空气质量对data进行从小到大的排序
+ * 返回一个排序后的数组
+ */
+
+ /**
+ * 首先，要理解sort()其实是利用递归进行冒泡排序的
+ *其次，sort()方法接收的是一个比较函数compare(
+ *x,y),接收两个参数，主要是根据参数的比较来判断返回值的
+ *最后，记住这样一句话就好理解下面的代码了。凡是return 1的时候就交换位置
+ */
+function sortAqiData(data) {
+  sort_data = new Array()
+  data.sort(function(a,b){
+    return b[1] - a[1];
+  })
+  return data
+}
+
+/**
+ * render
+ * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
+ * 格式见ul中的注释的部分
+ */
+function render(data) {
+  var arr = ['一','二','三','四','五','六','七'];
+  var Oul = document.getElementById('resort');
+  // <li>第三名：北京空气质量：<b>90</b></li>
+  for (var i = 0; i < data.length; i++) {
+    var Tli = '第'+arr[i]+'名：'+data[i][0]+'空气质量:';
+    var Tob = data[i][1];
+    var Oli = document.createElement('li');
+    var Oob = document.createElement('b');
+    Oli.innerText = Tli;
+    Oob.innerText = Tob;
+    Oli.appendChild(Oob);
+    Oul.appendChild(Oli);
+  }
+}
+
+function btnHandle() {
+  var aqiData = getData();
+  aqiData = sortAqiData(aqiData);
+  render(aqiData);
+}
+
+function init() {
+
+  button = document.getElementById('sort-btn');
+  button.onclick = function(){
+    btnHandle();
+  };
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+
+}
+
+init();
 
 </script>
 </body>
+</html>
